@@ -1,5 +1,6 @@
 /*
  * Copyright 2015 Len Payne <len.payne@lambtoncollege.ca>.
+ * Updated 2015 Mark Russell <mark.russell@lambtoncollege.ca>.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -47,11 +48,17 @@ public class AccountTest {
 
     @Test
     public void testGetBalanceIs100AfterDeposit500ThenWithdraw400() {
-        
+        Account a=new Account();
+        a.deposit(500);
+        a.withdraw(400);
+        assertEquals(100,a.getBalance(),0.0);
     }
     
     @Test
     public void testGetBalanceIsZeroAfterDeposit500ThenClose() {
-        
+        Account a =new Account();
+        a.deposit(500);
+        a.close();
+        assertEquals(0,a.getBalance(),0.0);
     }
 }

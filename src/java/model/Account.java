@@ -1,5 +1,6 @@
 /*
  * Copyright 2015 Len Payne <len.payne@lambtoncollege.ca>.
+ * Updated 2015 Mark Russell <mark.russell@lambtoncollege.ca>.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,12 +24,14 @@ import javax.enterprise.context.ApplicationScoped;
  */
 @ApplicationScoped
 public class Account {
+    double balance=0.0;
     /**
      * Returns the current total balance of the account
      * @return - the balance
      */
+    
     public double getBalance() {
-        return -999;
+        return this.balance;
     }
     
     /**
@@ -36,7 +39,7 @@ public class Account {
      * @param cash - the cash to deposit
      */
     public void deposit(double cash) {
-        
+        balance=balance+cash;
     }
     
     /**
@@ -44,13 +47,13 @@ public class Account {
      * @param cash - the cash to withdraw
      */
     public void withdraw(double cash) {
-    
+        this.balance-=cash;
     }
     
     /**
      * Deducts all cash from the total balance of the account
      */
     public void close() {
-        
+        this.balance=0;
     }
 }
